@@ -9,7 +9,7 @@ after_initialize do
 
         Rails.logger.info("Edit topic created with ID: #{topic.id}")
         # Enqueue job to update secure status after 30 seconds
-        Jobs.enqueue_in(30.seconds, :update_secure_status_job, topic_id: topic.id)
+        ::Jobs.enqueue_in(30.seconds, :update_secure_status_job, topic_id: topic.id)
     end
 
     DiscourseEvent.on(:topic_edited) do |topic, opts, user|
@@ -17,6 +17,6 @@ after_initialize do
   
         Rails.logger.info("Edit topic created with ID: #{topic.id}")
         # Enqueue job to update secure status after 30 seconds
-        Jobs.enqueue_in(30.seconds, :update_secure_status_job, topic_id: topic.id)
+        ::Jobs.enqueue_in(30.seconds, :update_secure_status_job, topic_id: topic.id)
     end
 end
