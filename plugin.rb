@@ -3,8 +3,14 @@
 # version: 0.1
 # authors: Hoc Le
 
-# Require the job file
-require_relative '/update_secure_status_job'
+enabled_site_setting :discourse-topic-plugin
+
+module ::MyPluginModule
+  PLUGIN_NAME = "discourse-plugin-name"
+end
+
+require_relative "lib/my_plugin_module/engine"
+
 
 after_initialize do
     DiscourseEvent.on(:topic_created) do |topic, opts, user|
