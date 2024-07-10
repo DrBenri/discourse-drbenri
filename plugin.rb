@@ -1,4 +1,4 @@
-# name: topic_plugin
+# name: discourse-topic-plugin
 # about: Runs a custom script when a new topic is created, edited
 # version: 0.1
 # authors: Hoc Le
