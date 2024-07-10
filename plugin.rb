@@ -4,7 +4,7 @@
 # authors: Hoc Le
 
 # Require the job file
-require_relative 'jobs/regular/update_secure_status_job'
+require_relative 'app/jobs/regular/update_secure_status_job'
 
 after_initialize do
     DiscourseEvent.on(:topic_created) do |topic, opts, user|
