@@ -1,5 +1,5 @@
 module Jobs
-    class UpdateSecureStatusJob < ::Jobs::Base
+    class UpdateSecureStatusJob < Jobs::Base
       def execute(args)
         topic_id = args[:topic_id]
         topic = Topic.find_by(id: topic_id)
