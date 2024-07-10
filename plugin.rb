@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # name: discourse-topic-plugin
 # about: Runs a custom script when a new topic is created, edited
 # version: 0.1
