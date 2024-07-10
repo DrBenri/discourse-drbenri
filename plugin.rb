@@ -3,7 +3,7 @@
 # version: 0.1
 # authors: Hoc Le
 
-enabled_site_setting :discourse-topic-plugin
+enabled_site_setting :plugin_name_enabled
 
 module ::MyPluginModule
   PLUGIN_NAME = "discourse-plugin-name"
