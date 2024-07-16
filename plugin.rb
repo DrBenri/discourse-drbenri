@@ -11,6 +11,8 @@ module ::MyPluginModule
   PLUGIN_NAME = "discourse-plugin-name"
 end
 
+register_asset 'javascripts/discourse/video_autoplay.js'
+
 require_relative "lib/my_plugin_module/engine"
 
 
