@@ -1,11 +1,11 @@
 import { withPluginApi } from 'discourse/lib/plugin-api';
 
 function initializeVideoAutoplay(api) {
-  log('initializeVideoAutoplay');
+  console.log('initializeVideoAutoplay');
   api.onPageChange(() => {
-    log('onPageChange');
+    console.log('onPageChange');
     document.querySelectorAll('video').forEach(video => {
-      log('video', video);
+      console.log('video', video);
       // Set video to autoplay, mute, and loop
       video.setAttribute('autoplay', true);
       video.setAttribute('muted', true);
