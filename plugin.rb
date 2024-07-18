@@ -30,4 +30,12 @@ after_initialize do
         # Enqueue job to update secure status after 3 seconds
         Jobs.enqueue_in(3.seconds, :update_secure_status_job, topic_id: topic.id)
     end
+
+    DiscourseEvent.on(:post_edited) do |post, opts, user|
+        next if post.nil?
+  
+        Rails.logger.info("Edited post with ID: #{post.id}")
+        # Enqueue job to update secure status after 3 seconds
+        Jobs.enqueue_in(3.seconds, :update_secure_status_job, topic_id: post.topic_id)
+    end
 end
