@@ -1,4 +1,4 @@
-import { withPluginApi } from 'discourse/lib/plugin-api';
+import { withPluginApi } from "discourse/lib/plugin-api";
 
 function initializeVideoAutoplay(api) {
   console.log('initializeVideoAutoplay');
@@ -20,8 +20,8 @@ function initializeVideoAutoplay(api) {
 }
 
 export default {
-  name: 'video-autoplay',
+  name: 'discourse-topic-plugin',
   initialize() {
-    withPluginApi('0.8.31', (api) => initializeVideoAutoplay(api));
+    withPluginApi('0.8.32', (api) => initializeVideoAutoplay(api));
   }
 };
