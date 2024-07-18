@@ -18,7 +18,7 @@ after_initialize do
     DiscourseEvent.on(:topic_created) do |topic, opts, user|
         next if topic.nil?
 
-        Rails.logger.info("Edit topic created with ID: #{topic.id}")
+        Rails.logger.info("Created topic with ID: #{topic.id}")
         # Enqueue job to update secure status after 3 seconds
         Jobs.enqueue_in(3.seconds, :update_secure_status_job, topic_id: topic.id)
     end
@@ -26,7 +26,7 @@ after_initialize do
     DiscourseEvent.on(:topic_edited) do |topic, opts, user|
         next if topic.nil?
   
-        Rails.logger.info("Edit topic created with ID: #{topic.id}")
+        Rails.logger.info("Edited topic with ID: #{topic.id}")
         # Enqueue job to update secure status after 3 seconds
         Jobs.enqueue_in(3.seconds, :update_secure_status_job, topic_id: topic.id)
     end
