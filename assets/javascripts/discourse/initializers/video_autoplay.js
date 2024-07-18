@@ -1,7 +1,7 @@
 import { withPluginApi } from 'discourse/lib/plugin-api';
 
 function initializeVideoAutoplay(api) {
-    log('initializeVideoAutoplay');
+  log('initializeVideoAutoplay');
   api.onPageChange(() => {
     log('onPageChange');
     document.querySelectorAll('video').forEach(video => {
