@@ -1,24 +1,17 @@
-import { withPluginApi } from "discourse/lib/plugin-api";
+import { withPluginApi } from 'discourse/lib/plugin-api';
+
+function initializePlugin(api)
+{
+  api.onPageChange((url, title) => {
+        // your code here
+        console.log('the page changed to: ' + url + ' and title ' + title);
+  });
+}
 
 export default {
   name: 'discourse-topic-plugin',
-  initialize() {
-    withPluginApi('0.8.32', (api) => {
-      api.onPageChange(() => {
-        console.log('onPageChange');
-        document.querySelectorAll('video').forEach(video => {
-          console.log('video', video);
-          // Set video to autoplay, mute, and loop
-          video.setAttribute('autoplay', true);
-          video.setAttribute('muted', true);
-          video.setAttribute('loop', true);
-    
-          // Disable right-click context menu
-          video.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-          });
-        });
-      });
-    });
+  initialize: function(container)
+  {
+    withPluginApi('0.1', api => initializePlugin(api));
   }
 };
