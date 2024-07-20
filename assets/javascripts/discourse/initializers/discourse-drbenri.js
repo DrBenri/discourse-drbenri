@@ -12,14 +12,14 @@ function initializePlugin(api)
 
           // check settings for autoplay: auto_play_video
           // play video on topic page
-          if (settings.auto_play_video) {
+          if (siteSettings.auto_play_video) {
             const videoElement = document.querySelector(".video-placeholder-container");
             videoElement.click();
           }
 
           // check settings for disable right click: disable_video_controls
           // disable video controls on topic page
-          if (settings.disable_video_controls) {
+          if (siteSettings.disable_video_controls) {
             setTimeout(() => {
               const videos = document.querySelectorAll('video');
               
