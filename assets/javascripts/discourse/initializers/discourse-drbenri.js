@@ -8,8 +8,7 @@ function initializePlugin(api)
         if (topicUrl) {
           // check app settings for plugin enabled
           const siteSettings = api.container.lookup("service:site-settings");
-          if (!siteSettings.drbenri_enabled) return;
-
+          
           // check settings for autoplay: auto_play_video
           // play video on topic page
           if (siteSettings.auto_play_video) {
