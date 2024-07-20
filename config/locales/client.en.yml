@@ -3,7 +3,16 @@ en:
     admin:
       site_settings:
         categories:
-          discourse-drbenri: "Discourse Dr.Benri"
+          discourse-drbenri: "Dr.Benri Plugin"
+      drbenri_enabled:
+        title: "Dr.Benri Plugin"
+        description: "Enable the Dr.Benri Plugin. Alway set to true."
+      auto_play_video:
+        title: "Auto Play Video"
+        description: "Automatically play videos when they are loaded."
+      disable_video_controls:
+        title: "Disable Video Controls"
+        description: "Disable video controls for all videos."
   js:
     discourse-drbenri:
       placeholder: placeholder
