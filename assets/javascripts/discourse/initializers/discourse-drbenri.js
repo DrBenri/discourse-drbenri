@@ -9,13 +9,13 @@ function initializePlugin(api)
         if (topicUrl) {
           //play video on topic page
           const videoElement = document.querySelector(".video-placeholder-container");
-          log(videoElement);
+          console.log(videoElement);
           videoElement.click();
 
           setTimeout(() => {
             //autoplay videos
             const videos = document.querySelectorAll('video');
-            log(videos);
+            console.log(videos);
             videos.forEach(video => video.muted = true);
             //disable right click on videos
             document.addEventListener('contextmenu', function(event) {
