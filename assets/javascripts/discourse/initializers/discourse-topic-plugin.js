@@ -9,7 +9,7 @@ function initializePlugin(api)
 }
 
 export default {
-  name: 'discourse-drbenri-plugin',
+  name: 'discourse-drbenri',
   initialize: function(container)
   {
     withPluginApi('0.1', api => initializePlugin(api));

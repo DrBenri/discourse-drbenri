@@ -1,4 +1,4 @@
-discourse-drbenri-plugin:
-  discourse-drbenri-plugin:
+discourse-drbenri:
+  discourse-drbenri:
     default: true
     client: true
