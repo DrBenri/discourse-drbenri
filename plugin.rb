@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# name: discourse-topic-plugin
+# name: discourse-drbenri-plugin
 # about: Runs a custom script when a new topic is created, edited
 # version: 0.1
 # authors: Hoc Le
@@ -8,7 +8,7 @@
 enabled_site_setting :plugin_name_enabled
 
 module ::MyPluginModule
-  PLUGIN_NAME = "discourse-plugin-name"
+  PLUGIN_NAME = "discourse-drbenri-plugin"
 end
 
 require_relative "lib/my_plugin_module/engine"
