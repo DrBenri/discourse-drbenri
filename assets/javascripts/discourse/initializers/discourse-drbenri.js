@@ -8,15 +8,11 @@ function initializePlugin(api)
         if (topicUrl) {
           //play video on topic page
           const videoElement = document.querySelector(".video-placeholder-container");
-          console.log(videoElement);
           videoElement.click();
 
           setTimeout(() => {
-            //autoplay videos
             const videos = document.querySelectorAll('video');
-            console.log(videos);
             
-            //remove download button of videos: controlsList="nodownload" oncontextmenu="return false;"
             videos.forEach(video => {
               video.muted = true;
               video.controlsList.add('nodownload');
@@ -27,11 +23,10 @@ function initializePlugin(api)
 
             // Disable right-click on videos only
             document.addEventListener('contextmenu', function(event) {
-              console.log(event);
               if (event.target.tagName === 'VIDEO') {
-                 
+                event.preventDefault();
               }
-          });
+            });
           }, 300);
       } else {
         // enable right click on videos
