@@ -4,8 +4,10 @@ en:
       site_settings:
         categories:
           discourse-drbenri: "Dr.Benri Plugin"
-        auto_play_video: "Automatically play videos when they are loaded."
-        disable_video_controls: "Disable video controls for all videos."
+    discourse-drbenri:
+      auto_play_video: "Automatically play videos when they are loaded."
+      disable_video_controls: "Disable video controls for all videos."
   js:
     discourse-drbenri:
-      placeholder: placeholder
+      auto_play_video: "Automatically play videos when they are loaded."
+      disable_video_controls: "Disable video controls for all videos."
