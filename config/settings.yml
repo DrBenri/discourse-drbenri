@@ -1,7 +1,4 @@
 discourse-drbenri:
-  drbenri_enabled:
-    default: true
-    client: true
   auto_play_video:
     default: true
     client: true
