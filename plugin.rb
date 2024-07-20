@@ -5,7 +5,7 @@
 # version: 0.1
 # authors: Hoc Le
 
-enabled_site_setting :plugin_name_enabled
+enabled_site_setting :drbenri_enabled
 
 module ::MyPluginModule
   PLUGIN_NAME = "discourse-drbenri"

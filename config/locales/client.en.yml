@@ -3,7 +3,7 @@ en:
     admin:
       site_settings:
         categories:
-          TODO_plugin_name: "Plugin Name"
+          discourse-drbenri: "Discourse Dr.Benri"
   js:
-    discourse_plugin_name:
+    discourse-drbenri:
       placeholder: placeholder
