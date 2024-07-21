@@ -5,9 +5,11 @@ en:
         categories:
           discourse-drbenri: "Dr.Benri Plugin"
     discourse-drbenri:
+      drbenri_enabled:  "Enable Dr.Benri Plugin, which automatically plays videos when they are loaded and disables video controls for all videos. Must be enabled to use the other settings."
       auto_play_video: "Automatically play videos when they are loaded."
       disable_video_controls: "Disable video controls for all videos."
   js:
     discourse-drbenri:
+      drbenri_enabled:  "Enable Dr.Benri Plugin, which automatically plays videos when they are loaded and disables video controls for all videos. Must be enabled to use the other settings."
       auto_play_video: "Automatically play videos when they are loaded."
       disable_video_controls: "Disable video controls for all videos."
