@@ -5,6 +5,7 @@ function initializePlugin(api)
   api.onPageChange((url, title) => {
         //topic page url: /t/2016-olympics-what-rio-doesn-t-want-the-world-to-see/38
         const topicUrl = url.match(/\/t\/([^\/]+)\/(\d+)/);
+        isMobile = window.innerWidth < 768;
         if (topicUrl) {
           // check app settings for plugin enabled
           const siteSettings = api.container.lookup("service:site-settings");
@@ -12,8 +13,10 @@ function initializePlugin(api)
           // check settings for autoplay: auto_play_video
           // play video on topic page
           if (siteSettings.auto_play_video) {
-            const videoElement = document.querySelector(".video-placeholder-container");
-            videoElement.click();
+            setTimeout(() => {
+              const videoElement = document.querySelector(".video-placeholder-container");
+              videoElement.click();
+            }, isMobile ? 1000 : 100);
           }
 
           // check settings for disable right click: disable_video_controls
@@ -36,7 +39,7 @@ function initializePlugin(api)
                   event.preventDefault();
                 }
               });
-            }, 100);
+            }, isMobile ? 1100 : 100);
           }
       };
   });
