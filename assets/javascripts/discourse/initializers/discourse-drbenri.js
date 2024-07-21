@@ -16,7 +16,7 @@ function initializePlugin(api)
             setTimeout(() => {
               const videoElement = document.querySelector(".video-placeholder-container");
               videoElement.click();
-            }, isMobile ? 1000 : 100);
+            }, isMobile ? 3000 : 100);
           }
 
           // check settings for disable right click: disable_video_controls
@@ -39,7 +39,7 @@ function initializePlugin(api)
                   event.preventDefault();
                 }
               });
-            }, isMobile ? 1100 : 100);
+            }, isMobile ? 3100 : 100);
           }
       };
   });
