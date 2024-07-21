@@ -15,6 +15,7 @@ function initializePlugin(api) {
         const videoElement = document.querySelector(".video-placeholder-container");
         videoElement.click();
 
+        // auto play video on mobile
         if (isMobile) {
           setTimeout(() => {
             const videoElement = document.querySelector(".video-placeholder-container");
@@ -26,22 +27,24 @@ function initializePlugin(api) {
       // check settings for disable right click: disable_video_controls
       // disable video controls on topic page
       if (siteSettings.disable_video_controls) {
-        const videos = document.querySelectorAll('video');
+        setTimeout(() => {
+          const videos = document.querySelectorAll('video');
 
-        videos.forEach(video => {
-          video.muted = true;
-          video.controlsList.add('nodownload');
-          video.oncontextmenu = function () {
-            return false;
-          };
-        });
+          videos.forEach(video => {
+            video.muted = true;
+            video.controlsList.add('nodownload');
+            video.oncontextmenu = function () {
+              return false;
+            };
+          });
 
-        // Disable right-click on videos only
-        document.addEventListener('contextmenu', function (event) {
-          if (event.target.tagName === 'VIDEO') {
-            event.preventDefault();
-          }
-        });
+          // Disable right-click on videos only
+          document.addEventListener('contextmenu', function (event) {
+            if (event.target.tagName === 'VIDEO') {
+              event.preventDefault();
+            }
+          });
+        }, 100);
       }
     };
   });
