@@ -5,7 +5,7 @@ function initializePlugin(api)
   api.onPageChange((url, title) => {
         //topic page url: /t/2016-olympics-what-rio-doesn-t-want-the-world-to-see/38
         const topicUrl = url.match(/\/t\/([^\/]+)\/(\d+)/);
-        isMobile = window.innerWidth < 768;
+        const isMobile = window.innerWidth < 768;
         if (topicUrl) {
           // check app settings for plugin enabled
           const siteSettings = api.container.lookup("service:site-settings");
