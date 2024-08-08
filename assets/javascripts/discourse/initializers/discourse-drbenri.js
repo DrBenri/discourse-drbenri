@@ -13,12 +13,16 @@ function initializePlugin(api) {
       // play video on topic page
       if (siteSettings.auto_play_video) {
         const videoElement = document.querySelector(".video-placeholder-container");
+        
+        if (!videoElement) {
+          return;
+        }
+
         videoElement.click();
 
         // auto play video on mobile
         if (isMobile) {
           setTimeout(() => {
-            const videoElement = document.querySelector(".video-placeholder-container");
             videoElement.click();
           }, 3000);
         }
