@@ -8,6 +8,10 @@ function initializePlugin(api) {
     if (topicUrl) {
       // make sure we are on top of topic page, x = 0, y = 0
       window.scrollTo(0, 0);
+      //check scroll position
+      const scrollPosition = window.scrollY;
+      console.log(scrollPosition);
+      
       
       // check app settings for plugin enabled
       const siteSettings = api.container.lookup("service:site-settings");
