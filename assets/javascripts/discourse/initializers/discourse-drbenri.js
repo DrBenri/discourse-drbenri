@@ -65,20 +65,25 @@ function initializePlugin(api) {
 function modifyStylesSubcategory() {
   const elements = document.querySelectorAll('.sidebar-section-link-prefix span');
 
-  elements.forEach(element => {
-    // Get the computed style for each element
-    const style = window.getComputedStyle(element);
-    const background = style.backgroundImage;
+elements.forEach(element => {
+  // Get the computed style for each element
+  const style = window.getComputedStyle(element);
+  const background = style.backgroundImage;
 
-    /// Check if the background matches the specific format
-    const isGradient = background.includes('linear-gradient');
-    const hasTwoColors = /rgb\(.+\) 50%, rgb\(.+\) 50%/.test(background);
+  // Check if the background is a linear gradient
+  const isGradient = background.includes('linear-gradient');
+  
+  // Use a regex to capture both colors from the gradient
+  const colorMatches = background.match(/rgb\(.+?\)/g);
 
-    // Apply padding-left if both conditions are true
-    if (isGradient && hasTwoColors) {
-      element.style.paddingLeft = '8px';
-    }
-  });
+  // Check if there are exactly two colors and if they are different
+  const hasTwoColors = colorMatches && colorMatches.length === 2 && colorMatches[0] !== colorMatches[1];
+
+  // Apply padding-left if the background is a gradient and the colors are different
+  if (isGradient && hasTwoColors) {
+    element.style.marginLeft = '8px';
+  }
+});
 }
 
 export default {
