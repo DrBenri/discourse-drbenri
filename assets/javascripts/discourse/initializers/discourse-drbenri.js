@@ -12,7 +12,7 @@ function initializePlugin(api) {
       // make sure we are on top of topic page, x = 0, y = 0
       setTimeout(() => {
         window.scrollTo(0, 0);
-      }, 100);
+      }, 1000);
       
       // check app settings for plugin enabled
       const siteSettings = api.container.lookup("service:site-settings");
@@ -70,9 +70,12 @@ function modifyStylesSubcategory() {
     const style = window.getComputedStyle(element);
     const background = style.backgroundImage;
 
-    // Check if the background contains "linear-gradient" and has two different colors
-    if (background.includes('linear-gradient') && background.match(/#[0-9a-fA-F]{6}/g)?.length === 2) {
-      // Add padding-left if two different colors are found in the linear-gradient
+    /// Check if the background matches the specific format
+    const isGradient = background.includes('linear-gradient');
+    const hasTwoColors = /rgb\(.+\) 50%, rgb\(.+\) 50%/.test(background);
+
+    // Apply padding-left if both conditions are true
+    if (isGradient && hasTwoColors) {
       element.style.paddingLeft = '8px';
     }
   });
