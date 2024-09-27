@@ -2,6 +2,9 @@ import { withPluginApi } from 'discourse/lib/plugin-api';
 
 function initializePlugin(api) {
   api.onPageChange((url, title) => {
+    // modify styles for subcategory in sidebar
+    modifyStylesSubcategory();
+
     //topic page url: /t/2016-olympics-what-rio-doesn-t-want-the-world-to-see/38
     const topicUrl = url.match(/\/t\/([^\/]+)\/(\d+)/);
     const isMobile = window.innerWidth < 768;
@@ -56,6 +59,22 @@ function initializePlugin(api) {
         }, 100);
       }
     };
+  });
+}
+
+function modifyStylesSubcategory() {
+  const elements = document.querySelectorAll('.sidebar-section-link-prefix span');
+
+  elements.forEach(element => {
+    // Get the computed style for each element
+    const style = window.getComputedStyle(element);
+    const background = style.backgroundImage;
+
+    // Check if the background contains "linear-gradient" and has two different colors
+    if (background.includes('linear-gradient') && background.match(/#[0-9a-fA-F]{6}/g)?.length === 2) {
+      // Add padding-left if two different colors are found in the linear-gradient
+      element.style.paddingLeft = '8px';
+    }
   });
 }
 
