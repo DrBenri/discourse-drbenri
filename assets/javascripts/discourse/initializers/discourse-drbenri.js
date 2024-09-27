@@ -81,7 +81,8 @@ elements.forEach(element => {
 
   // Apply padding-left if the background is a gradient and the colors are different
   if (isGradient && hasTwoColors) {
-    element.style.marginLeft = '8px';
+    // move parent element to the right 16px
+    element.parentElement.style.paddingLeft = '16px';
   }
 });
 }
