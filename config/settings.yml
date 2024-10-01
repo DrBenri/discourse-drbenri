@@ -8,3 +8,6 @@ discourse-drbenri:
   disable_video_controls:
     default: true
     client: true
+  default_open_replies:
+    default: true
+    client: true

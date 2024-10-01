@@ -12,7 +12,13 @@ function initializePlugin(api) {
       // make sure we are on top of topic page, x = 0, y = 0
       setTimeout(() => {
         window.scrollTo(0, 0);
-      }, 1000);
+      }, 500);
+
+      // Open reply composer on topic page
+      if (siteSettings.default_open_replies) {
+        const replyButton = document.querySelector('.btn.btn-icon-text.btn-primary.create');
+        replyButton.click();
+      }
       
       // check app settings for plugin enabled
       const siteSettings = api.container.lookup("service:site-settings");
