@@ -17,7 +17,7 @@ function initializePlugin(api) {
       // Open reply composer on topic page
       if (siteSettings.default_open_replies) {
         setTimeout(() => {
-          const replyButton = document.querySelector('.reply');
+          const replyButton = document.querySelector('.btn.btn-icon-text.btn-primary.create');
           if (replyButton) {
             replyButton.click();
           }
