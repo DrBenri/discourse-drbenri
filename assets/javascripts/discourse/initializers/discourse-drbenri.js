@@ -48,7 +48,7 @@ function modifyStylesSubcategory() {
 function gotoTop() {
   setTimeout(() => {
     window.scrollTo(0, 0);
-  }, 500);
+  }, 1000);
 }
 
 // Open reply composer on topic page
