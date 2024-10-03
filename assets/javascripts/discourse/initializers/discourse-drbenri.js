@@ -77,7 +77,7 @@ function autoPlayVideos(siteSettings, isMobile) {
     }
 
     videoElement.click();
-    
+
     // auto play video on mobile
     if (isMobile) {
       setTimeout(() => {
