@@ -4,6 +4,7 @@ function initializePlugin(api) {
   api.onPageChange((url, title) => {
     // check app settings for plugin enabled
     const siteSettings = api.container.lookup("service:site-settings");
+    const isMobile = window.innerWidth < 768;
 
     modifyStylesSubcategory();
 
@@ -11,8 +12,8 @@ function initializePlugin(api) {
     const topicUrl = url.match(/\/t\/([^\/]+)\/(\d+)/);
     if (topicUrl) {
       gotoTop();
-      openReplies(siteSettings);
-      autoPlayVideos(siteSettings);
+      openReplies(siteSettings, isMobile);
+      autoPlayVideos(siteSettings, isMobile);
       disableActionsInVideo(siteSettings);
     };
   });
@@ -52,8 +53,8 @@ function gotoTop() {
 }
 
 // Open reply composer on topic page
-function openReplies(siteSettings) {
-  if (siteSettings.default_open_replies) {
+function openReplies(siteSettings, isMobile) {
+  if (siteSettings.default_open_replies && !isMobile) {
     setTimeout(() => {
       const replyButton = document.querySelector('.btn.btn-icon-text.btn-primary.create');
 
@@ -67,7 +68,7 @@ function openReplies(siteSettings) {
 
 // check settings for autoplay: auto_play_video
 // play video on topic page
-function autoPlayVideos(siteSettings) {
+function autoPlayVideos(siteSettings, isMobile) {
   if (siteSettings.auto_play_video) {
     const videoElement = document.querySelector(".video-placeholder-container");
 
@@ -76,7 +77,7 @@ function autoPlayVideos(siteSettings) {
     }
 
     videoElement.click();
-    const isMobile = window.innerWidth < 768;
+    
     // auto play video on mobile
     if (isMobile) {
       setTimeout(() => {
