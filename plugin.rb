@@ -15,15 +15,21 @@ require_relative "lib/my_plugin_module/engine"
 
 
 after_initialize do
-    # Adding suffix to the username in the user serializer
-    add_to_serializer(:user, :username_with_suffix) do
-        "#{object.username}先生"
+    # Reopening the User model to append "先生" to usernames
+    class ::User
+        def username_with_suffix
+        "#{self.username}先生"
+        end
+
+        # Optionally, override the default `username` method
+        alias_method :original_username, :username
+        
+        def username
+        "#{original_username}先生"
+        end
     end
 
-    # Use the new method in the frontend
-    add_to_serializer(:post, :username) do
-        "#{object.user.username}先生"
-    end
+
 
     DiscourseEvent.on(:topic_created) do |topic, opts, user|
         next if topic.nil?
