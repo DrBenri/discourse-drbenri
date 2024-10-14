@@ -15,22 +15,6 @@ require_relative "lib/my_plugin_module/engine"
 
 
 after_initialize do
-    # # Reopening the User model to append "先生" to usernames
-    # class ::User
-    #     # Define a method that appends "先生" to the existing username
-    #     def username_with_suffix
-    #     "#{self[:username]}先生"
-    #     end
-
-    #     # Optional: Override the default `username` method (if desired)
-    #     # If you want all places where `username` is called to include the suffix
-    #     def username
-    #     "#{self[:username]}先生"
-    #     end
-    # end
-
-
-
     DiscourseEvent.on(:topic_created) do |topic, opts, user|
         next if topic.nil?
 
